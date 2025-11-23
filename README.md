@@ -113,7 +113,7 @@ Garden is the fastest Bitcoin bridge, enabling cross-chain Bitcoin swaps in as l
 
 ## Areas of concern (where to focus for bugs)
 
-The main focus of wardens should be that there is no way to cuase fund loss for any party involved in a swap.
+The main focus of wardens should be that there is no way to cause fund loss for any party involved in a swap.
 
 ## Main invariants
 
