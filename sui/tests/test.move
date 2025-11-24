@@ -40,7 +40,7 @@ fun mint_coins(amount: u64, ctx: &mut tx_context::TxContext): Coin<SUI> {
 
 // Helper to generate a test secret and hash
 fun generate_secret(): (vector<u8>, vector<u8>) {
-    let secret = b"thisisasecretphrase12345";
+    let secret = x"a1b2c3d4e5f6071829384756abcdef0123456789abcdef0123456789abcdef01";
     let secret_hash = hash_lib::sha2_256(secret);
     (secret, secret_hash)
 }
