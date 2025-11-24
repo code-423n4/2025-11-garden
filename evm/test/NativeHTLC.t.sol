@@ -35,7 +35,7 @@ contract NativeHTLCTest is Test {
         vm.deal(addrAlice, 1000);
         vm.deal(addrBob, 1000);
         vm.deal(addrDavid, 1000);
-        secret = "secret";
+        secret = abi.encodePacked(keccak256("secret"));
         secretHash = sha256(secret);
         timelock = 100;
         amount = 10;
@@ -292,6 +292,7 @@ contract NativeHTLCTest is Test {
         bytes memory _secret,
         bytes calldata _destinationData
     ) public {
+        vm.assume(_secret.length == 32);
         vm.assume(
             _redeemerGen > 0
                 && _redeemerGen < 115792089237316195423570985008687907852837564279074904382605163141518161494337

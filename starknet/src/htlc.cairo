@@ -274,6 +274,8 @@ pub mod HTLC {
         /// @param   order_id  Order ID of the HTLC order.
         /// @param   secret  Secret used to redeem an order.
         fn redeem(ref self: ContractState, order_id: felt252, secret: Array<u32>) {
+            assert!(secret.len() == 8, "HTLC: invalid length of secret");
+
             let order = self.orders.read(order_id);
             assert!(order.redeemer.is_non_zero(), "HTLC: order not initiated");
             assert!(order.fulfilled_at.is_zero(), "HTLC: order fulfilled");

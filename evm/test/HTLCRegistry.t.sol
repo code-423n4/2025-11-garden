@@ -43,7 +43,7 @@ contract HTLCRegistryTest is Test {
         TheMan = payable(theManAddr);
         timelock = 1000;
         amount = 10;
-        secret = "secret";
+        secret = abi.encodePacked(keccak256("secret"));
         secretHash = sha256(secret);
         token.transfer(alice, amount);
         token.transfer(TheMan, 1000);

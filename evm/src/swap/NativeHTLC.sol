@@ -192,6 +192,7 @@ contract NativeHTLC is EIP712 {
      * @param   secret  secret used to redeem the order
      */
     function redeem(bytes32 orderID, bytes calldata secret) external {
+        require(secret.length == 32, NativeHTLC__IncorrectSecret());
         Order storage order = orders[orderID];
 
         address payable orderRedeemer = order.redeemer;

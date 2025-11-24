@@ -41,7 +41,7 @@ contract HTLCTest is Test, EIP712 {
         (alice, keyAlice) = makeAddrAndKey("alice");
         (bob, keyBob) = makeAddrAndKey("bob");
         (david, keyDavid) = makeAddrAndKey("david");
-        secret = "secret";
+        secret = abi.encodePacked(keccak256("secret"));
         secretHash = sha256(secret);
         timelock = 100;
         amount = 10;
