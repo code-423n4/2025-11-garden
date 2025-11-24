@@ -232,6 +232,7 @@ contract HTLC is EIP712 {
      * @param   secret  secret used to redeem an order
      */
     function redeem(bytes32 orderID, bytes calldata secret) external {
+        require(secret.length == 32, HTLC__IncorrectSecret());
         Order storage order = orders[orderID];
 
         address redeemer = order.redeemer;

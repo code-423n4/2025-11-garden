@@ -176,6 +176,7 @@ public fun redeem<CoinType>(
     secret: vector<u8>,
     ctx: &mut TxContext,
 ) {
+    assert!(vector::length(&secret) == 32, EIncorrectSecret);
     assert!(dynamic_field::exists_(&orders_reg.id, order_id), EOrderNotInitiated);
     let registry_addr = object::uid_to_address(&orders_reg.id);
 
